@@ -7,22 +7,22 @@ S = json.load(open(os.path.join(os.path.dirname(__file__), "stats.json")))
 HEADER = "moujan@mirjalili"
 
 ROWS = [
-    ("Uni",                  "Georg-August-Universitaet Goettingen"),
-    ("Major",                "M.Sc. Applied Data Science"),
-    ("Work",                 "SUB Goettingen, R&D Student Assistant"),
+    ("Uni",                   "Georg-August-Universitaet Goettingen"),
+    ("Major",                 "M.Sc. Applied Data Science"),
+    ("Work",                  "SUB Goettingen, R&D Student Assistant"),
     (None, ""),
     ("§", "Skills"),
     ("Languages.Programming", "Python, Java, C, C++, JavaScript"),
     ("Languages.Computer",    "HTML, CSS, JSON, LaTeX, YAML"),
     ("Languages.Real",        "Persian, English, German"),
-    ("Frameworks",            "PyTorch, TensorFlow, Keras, Hugging Face, Phaser"),
-    ("Libraries",             "scikit-learn, pandas, NumPy, Matplotlib, vLLM"),
+    ("Frameworks",            "PyTorch, TensorFlow, Keras, Phaser"),
+    ("Libraries",             "Hugging Face, scikit-learn, pandas, NumPy, Matplotlib, vLLM"),
     ("AI.Tooling",            "Prompt engineering, RAG, fine-tuning and evaluation"),
     ("AI.APIs",               "Claude, OpenAI, Claude Code, Copilot"),
     ("Databases",             "MySQL"),
     ("Tools",                 "Git, LaTeX, Linux"),
     (None, ""),
-    ("Research.Interests",        "NLP, Media Bias, Interpretability"),
+    ("Research.Interests",    "NLP, Media Bias, Interpretability"),
     (None, ""),
     ("§", "Contact"),
     ("Email.Personal",        "moujanmirjalili@gmail.com"),
@@ -33,8 +33,8 @@ ROWS = [
     (None, ""),
     ("§", "GitHub Stats"),
     ("Repos",                 S["repos"]),
-    ("Stars",             S["followers"]),
-    ("Views",             S["following"]),
+    ("Followers",             S["followers"]),
+    ("Following",             S["following"]),
 ]
 
 if S.get("stars") is not None:
