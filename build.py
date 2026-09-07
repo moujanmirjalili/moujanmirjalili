@@ -30,14 +30,14 @@ ROWS = [
     ("Email.Work",            "moujan.mirjalili@sub.uni-goettingen.de"),
     ("Website",               "moujanmirjalili.github.io"),
     ("LinkedIn",              "linkedin.com/in/moujanmirjalili"),
-    (None, ""),
-    ("§", "GitHub Stats"),
+    # (None, ""),
+    # ("§", "GitHub Stats"),
 ]
 
-if S.get("stars") is not None:
-    ROWS.append(("Stars", S["stars"]))
-if S.get("views") is not None:
-    ROWS.append(("Views", S["views"]))
+# if S.get("stars") is not None:
+#     ROWS.append(("Stars", S["stars"]))
+# if S.get("views") is not None:
+#     ROWS.append(("Views", S["views"]))
 
 RW = 74
 CH = 8.4
