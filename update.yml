@@ -1,0 +1,34 @@
+name: Update profile card
+
+on:
+  schedule:
+    - cron: "0 4 * * *"      # daily at 04:00 UTC
+  workflow_dispatch:          # and on demand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh stats and rebuild SVGs
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          USER_NAME: ${{ github.repository_owner }}
+        run: |
+          python update_stats.py
+          python build.py
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add stats.json light_mode.svg dark_mode.svg
+          git diff --staged --quiet || git commit -m "chore: refresh profile card"
+          git push
